@@ -23,10 +23,10 @@ const FormSchema = z.object({
 	urls: z
 		.string()
 		.min(10, {
-			message: "Urls at least 10 characters.",
+			message: "Ít nhất 10 ký tự",
 		})
 		.max(1000, {
-			message: "Urls must not be longer than 1000 characters.",
+			message: "Không được vượt quá 1000 ký tự",
 		}),
 })
 
@@ -46,11 +46,17 @@ export default function DownloadImages(){
 
 		console.log({arr})
 		downloadAllImages(arr).then(() => toast({
-			title: 'Đã tải thành công',
+			title: '👌 Đã tải thành công',
 			variant: "default"
-		}))
+		})).catch((e) => {
+			toast({
+				title: '⁉️ Có lỗi xảy ra',
+				variant: "destructive"
+			})
+			console.log(e)
+		})
 		toast({
-			title: "You submitted the following values:",
+			title: "🎶 Bắt đầu tải các link ảnh bạn submit, vui lòng chờ...",
 			description: (
 				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">
@@ -59,19 +65,6 @@ export default function DownloadImages(){
         </pre>
 			),
 		})
-	}
-
-	async function downloadAnImage(imageSrc: string, image_name: string) {
-		const image = await fetch(imageSrc)
-		const imageBlog = await image.blob()
-		const imageURL = URL.createObjectURL(imageBlog)
-
-		const link = document.createElement('a')
-		link.href = imageURL
-		link.download = image_name || 'image file name here'
-		document.body.appendChild(link)
-		link.click()
-		document.body.removeChild(link)
 	}
 
 	const imageUrlToBase64 = async (url: string) => {
@@ -120,12 +113,6 @@ export default function DownloadImages(){
 									/>
 								</FormControl>
 								<FormMessage />
-								<FormDescription className={'text-sm'}>
-									Ví dụ:
-									<pre className="mt-2 rounded-md bg-slate-950 p-4">
-					          <code className="text-white">https://picsum.photos/200/300?random=1, https://picsum.photos/200/300?random=2, https://picsum.photos/200/300?random=3</code>
-					        </pre>
-								</FormDescription>
 							</FormItem>
 						)}
 					/>
