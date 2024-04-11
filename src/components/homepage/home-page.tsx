@@ -14,11 +14,11 @@ export default function HomePage(){
 
 					<div className={'flex flex-col gap-4'}>
 						<p className={'font-bold text-3xl'}>Vinh Nguyễn</p>
-						<p className={''}>Tôi là Vinh, chuyên môn chính là làm website. Project này hoàn toàn free, bạn có thể check source code của nó <Link className={'text-indigo-600 underline'} href={'/'}>tại đây</Link> </p>
+						<p className={''}>Tôi là Vinh, chuyên môn chính là làm website. Project này hoàn toàn free, bạn có thể check source code của nó <Link className={'text-indigo-600 underline'} href={'https://github.com/vinhweb/download-images-by-urls'} target={'_blank'}>tại đây</Link> </p>
 						<div className={'flex flex-wrap gap-2'}>
 							<Link href={'https://www.youtube.com/@vinhwebit'} className={badgeVariants({ variant: "secondary" })}>Youtube</Link>
-							<Link href={'https://www.youtube.com/@vinhwebit'} className={badgeVariants({ variant: "secondary" })}>Facebook</Link>
-							<Link href={'https://www.youtube.com/@vinhwebit'} className={badgeVariants({ variant: "secondary" })}>Github</Link>
+							<Link href={'https://www.facebook.com/vinhstinghubt/'} className={badgeVariants({ variant: "secondary" })}>Facebook</Link>
+							<Link href={'https://github.com/vinhweb/'} className={badgeVariants({ variant: "secondary" })}>Github</Link>
 						</div>
 					</div>
 				</div>
