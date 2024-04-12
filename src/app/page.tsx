@@ -3,8 +3,8 @@ import HomePage from "@/components/homepage/home-page";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {
-  title: 'Tool Download nhiều hình ảnh một lúc',
-  description: 'Đây là một tool siêu đơn giản, giúp bạn download nhiều hình ảnh một lúc bằng đoạn văn bản chứa URLs hình ảnh mà bạn muốn tải về',
+  title: 'Download multiple images at once',
+  description: 'This is a super simple tool that helps you download multiple images at once using text containing the URLs of the images you want to download.',
 }
 
 export default function Home() {

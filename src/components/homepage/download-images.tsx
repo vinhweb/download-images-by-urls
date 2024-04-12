@@ -23,10 +23,10 @@ const FormSchema = z.object({
 	urls: z
 		.string()
 		.min(10, {
-			message: "Ít nhất 10 ký tự",
+			message: "At least 10 characters",
 		})
 		.max(10000, {
-			message: "Không được vượt quá 10000 ký tự",
+			message: "Must not exceed 10000 characters",
 		}),
 })
 
@@ -50,14 +50,14 @@ export default function DownloadImages(){
 				.map(n=>n.trim())
 				.filter(n=>n)
 		} catch (e) {
-			form.setError('urls', {message: 'Format của text chưa đúng'})
+			form.setError('urls', {message: 'The format of the text is not correct'})
 			return
 		}
 
 		arr = Array.from(new Set(arr))
 
 		toast({
-			title: "🎶 Bắt đầu tải các link ảnh bạn submit, vui lòng chờ...",
+			title: "🎶 Start downloading the image links you submitted, please wait...",
 			description: (
 				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">
@@ -68,11 +68,11 @@ export default function DownloadImages(){
 		})
 
 		downloadAllImages(arr).then(() => toast({
-			title: '👌 Đã tải thành công',
+			title: '👌 Downloaded successfully',
 			variant: "default"
 		})).catch((e) => {
 			toast({
-				title: '⁉️ Có lỗi xảy ra',
+				title: '⁉️ An error occurred',
 				variant: "destructive"
 			})
 			console.log(e)
@@ -116,7 +116,7 @@ export default function DownloadImages(){
 								<FormControl>
 									<Textarea
 										placeholder={
-											`Điền link hình ảnh vào đây, phân tách nhau bởi dấu ',' hoặc ';' hoặc 'xuống dòng'`
+											`Enter image links here, separated by ',' or ';' or 'line break'`
 										}
 										className="resize-none"
 										required
@@ -128,7 +128,7 @@ export default function DownloadImages(){
 							</FormItem>
 						)}
 					/>
-					<Button type={'submit'}>Tải hình ảnh</Button>
+					<Button type={'submit'}>Download images</Button>
 				</form>
 			</Form>
 		</Fragment>

@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="en">
       <body className={`${inter.className} bg-[#f5f5f5]`}>
         {children}
         <Toaster />
