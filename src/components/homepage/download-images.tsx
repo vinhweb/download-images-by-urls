@@ -36,14 +36,36 @@ export default function DownloadImages(){
 	})
 
 	function onSubmit(data: z.infer<typeof FormSchema>) {
-		let arr = data.urls.trim()
-			.replaceAll('\n', ',')
-			.replaceAll(';', ',')
-			.split(',')
-			.map(n=>n.trim())
-			.filter(n=>n)
+		let arr : string[] = []
+
+		try {
+			arr = data.urls.trim()
+				.replaceAll('\'', '')
+				.replaceAll('"', '')
+				.replaceAll('[', '')
+				.replaceAll(']', '')
+				.replaceAll('\n', ',')
+				.replaceAll(';', ',')
+				.split(',')
+				.map(n=>n.trim())
+				.filter(n=>n)
+		} catch (e) {
+			form.setError('urls', {message: 'Format của text chưa đúng'})
+			return
+		}
 
 		arr = Array.from(new Set(arr))
+
+		toast({
+			title: "🎶 Bắt đầu tải các link ảnh bạn submit, vui lòng chờ...",
+			description: (
+				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">
+	          {data.urls}
+          </code>
+        </pre>
+			),
+		})
 
 		downloadAllImages(arr).then(() => toast({
 			title: '👌 Đã tải thành công',
@@ -54,16 +76,6 @@ export default function DownloadImages(){
 				variant: "destructive"
 			})
 			console.log(e)
-		})
-		toast({
-			title: "🎶 Bắt đầu tải các link ảnh bạn submit, vui lòng chờ...",
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">
-	          {data.urls}
-          </code>
-        </pre>
-			),
 		})
 	}
 

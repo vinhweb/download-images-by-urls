@@ -27,7 +27,8 @@ export default function HomePage(){
 			<div className="container my-20 max-w-5xl">
 				<div className={'mb-6'}>
 					<h1 className={'text-2xl font-medium'}>Tool Download nhiều hình ảnh một lúc</h1>
-					<p className={'text-gray-800 '}>Đây là một tool siêu đơn giản, giúp bạn download nhiều hình ảnh một lúc bằng đoạn văn bản chứa URLs hình ảnh mà bạn muốn tải về. Phân tách mỗi URL của ảnh bằng dấu <span className={'px-1 bg-yellow-300 text-black rounded'}>,</span> hoặc <span className={'px-1 bg-yellow-300 text-black rounded'}>;</span> hoặc <span className={'px-1 bg-yellow-300 text-black rounded'}>xuống dòng</span></p>
+					<p className={'text-gray-800 '}>Đây là một tool siêu đơn giản, giúp bạn download nhiều hình ảnh một lúc bằng đoạn văn bản chứa URLs hình ảnh mà bạn muốn tải về.
+						Phân tách mỗi URL của ảnh bằng dấu <span className={'px-1 bg-yellow-300 text-black rounded'}>,</span> hoặc <span className={'px-1 bg-yellow-300 text-black rounded'}>;</span> hoặc <span className={'px-1 bg-yellow-300 text-black rounded'}>xuống dòng</span> hoặc bằng <span className={'px-1 bg-yellow-300 text-black rounded'}>mảng</span> cũng được</p>
 				</div>
 				<DownloadImages/>
 
@@ -51,6 +52,18 @@ export default function HomePage(){
 			          https://picsum.photos/200/300?random=1<br/>
 			          https://picsum.photos/200/300?random=2<br/>
 			          https://picsum.photos/200/300?random=3<br/>
+							</code>
+		        </pre>
+					</div>
+					<div className={'text-sm text-gray-800'}>
+						<div>Ví dụ 04:</div>
+						<pre className="mt-2 rounded-md bg-slate-950 p-4 overflow-x-auto">
+		          <code className="text-white">
+		          [<br/>
+			          &quot;https://picsum.photos/200/300?random=1&quot;,<br/>
+			          &quot;https://picsum.photos/200/300?random=2&quot;,<br/>
+			          &quot;https://picsum.photos/200/300?random=3&quot;<br/>
+		          ]
 							</code>
 		        </pre>
 					</div>
