@@ -25,8 +25,8 @@ const FormSchema = z.object({
 		.min(10, {
 			message: "Ít nhất 10 ký tự",
 		})
-		.max(1000, {
-			message: "Không được vượt quá 1000 ký tự",
+		.max(10000, {
+			message: "Không được vượt quá 10000 ký tự",
 		}),
 })
 
@@ -42,9 +42,9 @@ export default function DownloadImages(){
 			.split(',')
 			.map(n=>n.trim())
 			.filter(n=>n)
+
 		arr = Array.from(new Set(arr))
 
-		console.log({arr})
 		downloadAllImages(arr).then(() => toast({
 			title: '👌 Đã tải thành công',
 			variant: "default"
@@ -108,7 +108,7 @@ export default function DownloadImages(){
 										}
 										className="resize-none"
 										required
-										rows={5}
+										rows={10}
 										{...field}
 									/>
 								</FormControl>
